@@ -47,11 +47,22 @@
           => $ Symfony console make:entity  // choisir User et ajouter vos propriétés. <br>
           => $ symfony console make:migration <br>
           => $ symfony console doctrine:migrations:migrate
-          
-          
-          
-          
+
         </p>
+        <article class="mt-4">
+        <h3 class="mt-4"> Fichiers créés : </h3>
+          Qu'est ce que security-bundle a apporté? Tout d'abord, dans l'entité User qui vient d'être créée, on constate que les interfaces UserInterface et PasswordAuthentificateUserInterface ont été impémentés. <br>
+          L'implémlemtation de ces interfaces ajoute des metodes à notre classe User : <br>
+          <ul>
+            <li><strong>getUserIdentifier()</strong> permet de retourner identifiant uynique que l'ona choisi,</li>
+            <li><strong>getRoles() </strong>permet de récuperer le role de l'utilisateur,</li>
+            <li><strong>setRoles()</strong> permet de modifier le role de l'utilisateur,</li>
+            <li><strong>getPassword()</strong> permet de récupérer le mot de passe de l'utilisateur,</li>
+            <li><strong>getSalt()</strong> est utile uniquement si nous n'avons pas de méthode dse hashage,</li>
+            <li><strong>eraseCredentials()</strong> permet d'effacer les données sensibles et temporaires.</li>
+          </ul>
+          
+        </article>
       </div>
     </div>
   </header>
