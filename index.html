@@ -86,7 +86,25 @@
         role_hierarchy ici permet de donner à ROLE_ADMIN toutes les autorisations de ROLE_USER.
         <br><br>
 
-        Il est aussi possible de restreindre une route en mettant une annotation ou un attribut avant la méthode du controller qui gère la route (par exemple : #[IsGranted('ROLE_ADMIN')]) ou d'utiliser les roles comme condition dans un fichier twig
+        Il est aussi possible de restreindre une route en mettant une annotation ou un attribut avant la méthode du controller qui gère la route (par exemple : #[IsGranted('ROLE_ADMIN')]) ou d'utiliser les roles comme condition dans un fichier twig.
+
+        <h3>Exemple </h3>
+        <pre>
+          
+          {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('user_create') }}" class="btn btn-primary">Créer un utilisateur</a>
+          {% endif %}
+          
+        </pre>
+        
+        </p>
+        <h3 class=" mt-4 "> Autres outils e sécurité</h3>
+
+        <p> 
+          Il faut savoir que symfony apporte certains outils liés à la sécurité: <br>
+          * HttpFoundation par exemple gère les sesionspour nous. Plus besoin ,comme dans PHP, d'utiliser "session_start()" et d'autres fonctions simiulaires de la superglobales $_SESSION. Pour utliser les sessions à partir d'un controller vous pouvez taper un argument request de cette façon: <br>
+
+          $session = $request->getSession();
         </p>
       </div>
     </div>
