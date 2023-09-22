@@ -27,6 +27,30 @@
           <br><br>
 
           Commençons pa rinstaller le pack de sécurité fourni par Symfony ainsi que l'entity "User". Grace à ce pack de sécurité , nous pouvons faire un make:user à la place d'une création habituelle d'entité avec make:entity. De cette façon, User sera créé avec des outils de sécurité.
+          <br><br>
+          <h3 class="mt-4">Méthode</h3>
+          Pour cela, dans le terminal , tapez la ligne de commande suivante: 
+          <br><br>
+
+          => $ composer require symfony/security-bundle <br>
+          => $ php bin/console make:user ... (puis suivre les instructions proposées par le términal) 
+          <br><br>
+          * The name of the security user class(e.g. User) [User] => valider. <br>
+          *Do you want to store data in the database(via Doctrine)? (yes/no) [yes]. <br>
+          * Enter a property name that will be the unique "dispaly"name for the user(e.g. email,username,uuid) [email]. <br>
+          * Does this app need to hash/check user passwords? [yes]. <br><br>
+
+          C'est un succès, vous etes prévenu qu'une entité et un repository User et UserRepository ont été créés et que le fichier security.yaml a été modifié.
+            <h3 class="mt-4">Méthode</h3>
+          Votre entité est assez sommaire, vous pouvez ajouter d'autres propriétés avant de faire une miogration et mettre à jour la base de données. Voici mles commandes qui vous seront nécessaires: <br><br>
+
+          => $ Symfony console make:entity  // choisir User et ajouter vos propriétés. <br>
+          => $ symfony console make:migration <br>
+          => $ symfony console doctrine:migrations:migrate
+          
+          
+          
+          
         </p>
       </div>
     </div>
