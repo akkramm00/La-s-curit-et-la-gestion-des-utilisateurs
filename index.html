@@ -63,6 +63,31 @@
           </ul>
           
         </article>
+
+        <h3 class="mt-4">Rôles</h3>
+        <p>
+          Le role est une propriété importante pour gérer les utlisateurs . On peut définir les routes qui sont accessibles suivant le role qui est attribué à l'utilisateur dans le ficheir security.yaml. Voici un exemple ci-dessous: <br><br>
+
+          <pre>
+            access_control:
+               - {path: ^/,roles: ROLE_USER }
+               - {path: ^/login, roles: PUBLIC_ACCESS }
+               - {path: ^/users, roles: ROLE_ADMIN }
+
+
+            role_hierarchy:
+               ROLE_ADMIN:         ROLE_USER
+          </pre>
+        <br><br>
+
+         L'ensemble du site n'est accessible qu'aux utilisateurs connéctés qui ont le role "ROLE_USER". Les pages commençant par /login qui font pourtant partie du site sontaccessibles à tous, tandis que la pages commançant pa le chemin /user ne sont accessibles qu'aux utilisateurs qui ont le  "ROLE_ADMIN".
+        <br><br>
+
+        role_hierarchy ici permet de donner à ROLE_ADMIN toutes les autorisations de ROLE_USER.
+        <br><br>
+
+        Il est aussi possible de restreindre une route en mettant une annotation ou un attribut avant la méthode du controller qui gère la route (par exemple : #[IsGranted('ROLE_ADMIN')]) ou d'utiliser les roles comme condition dans un fichier twig
+        </p>
       </div>
     </div>
   </header>
