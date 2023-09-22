@@ -11,7 +11,7 @@
   <header class="container">
     <div class="row">
       <div class="col">
-        <h1 class="text-center">La sécurité</h1>
+        <h1 class="text-center fw-bold text-info  my-4">Introduction à La sécurité</h1>
 <p>
   La sécurité est une question importante lorsque l'on détient une application web. Il est probable que nous acceptions et que nous permettions que noytre page d'accueil soit accésssible à tout "surfeur" sans aucune restriction. Cependant, nous ne voulons pas autant que le site soit accessible à des personnes non connéctées, voilà pourquoi il est nécessaine de créer un formulaire d'inscription et d'authentification.
         <br><br>
@@ -20,6 +20,14 @@
 
   Alors quels outils pouvons-nous utilider dans une application Symfony 5.4 pour une bonne gestion des utlisateurs et garantir toutes les sécurités nécessaires? C'est ce que nous verrons à traversce cours .
 </p>
+        <h1 class="text-center my-4 text-info fw-bold">La sécurité</h1>
+        <h3 class="text-danger fw-bold ">Security-bundle:</h3>
+        <p>
+          Afin de pouvoir nous concentrer sur la gestion des utilisateurs et la sécurité, nous allons partir d'un projet qui a déja été créé avec une connexion à la base de données et makerBundle installée.
+          <br><br>
+
+          Commençons pa rinstaller le pack de sécurité fourni par Symfony ainsi que l'entity "User". Grace à ce pack de sécurité , nous pouvons faire un make:user à la place d'une création habituelle d'entité avec make:entity. De cette façon, User sera créé avec des outils de sécurité.
+        </p>
       </div>
     </div>
   </header>
