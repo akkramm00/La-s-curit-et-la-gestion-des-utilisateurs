@@ -104,8 +104,18 @@
           Il faut savoir que symfony apporte certains outils liés à la sécurité: <br>
           * HttpFoundation par exemple gère les sesionspour nous. Plus besoin ,comme dans PHP, d'utiliser "session_start()" et d'autres fonctions simiulaires de la superglobales $_SESSION. Pour utliser les sessions à partir d'un controller vous pouvez taper un argument request de cette façon: <br>
 
-          $session = $request->getSession();
+          $session = $request->getSession(); <br><br>
+
+          * La protection CSRF peut être activée grace à security-csrf CSRF(Cross-Site Requet Forgery) est un type de vulnérabilté des services web Ainsi security-csrf crée un token nommé par défaut _csrf_token qui permet , entre autres et pour faire simple, de vérifier qu'un formulaire vient bien de notre site et de la bonne personne Pensez à vérifier que  csrf_protection est à true dans le fichier "framework.yaml" .      
         </p>
+        <br><br>
+        
+        <pre>
+          framework:
+              secret: '%env(APP_SECRET)%'
+              csrf_protection: true
+              http_method_override: false
+        </pre>
       </div>
     </div>
   </header>
