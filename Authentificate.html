@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>La sécurité et la gestion des utilisateurs</title>
+  <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header class="container-fluid bg-dark">
+    <div class="row">
+      <div class="col">
+        <nav class="navbar navbar-dark bg-dark fs-5 d-flex justify-content-around align-items-center py-4">
+          <a href="index.html">La Sécurité</a>
+          <a href="Authentificate.html">L'Authentification</a>
+          <a href="Essentiel.html">L'Essentiel</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="text-center fw-bold text-info  my-4">L'Authentification</h1>
+        <h3 class="text-danger fw-bold">Make:auth</h3>
+        <h4>Méthode</h4>
+        <p>
+          Nous allons maintenant installer l'authentification. Mais d'abord, installons "twig" ainsi que "doctrine annotations" qui seront nécessaires au bon fonctionnement d'authentification; Tapez donc les commandes suivantes :
+          <pre class="bg-dark text-white py-4 px-4 fs-5">
+            $ composer require twig
+            $ composer require doctrine/annotations
+            $ symfony console make:auth
+          </pre>
+        <br>
+          <pre class="bg-success text-white py-4 px-4">
+         What style authentication do you want? [Empty authenticator]:
+            [0] Empty authenticator
+            [1] Login for authenticator
+          </pre>
+        C'est la première question qu'il pose lorsqu'on installe l'authentification. Il demande si on veut qu'il génère un formulaire d'authentification. Taper 1 pour la création de celui-ci. <br><br>
+        <div class="container bg-info text-white py-1 px-5 fs-5">The class nale of the authenticator to create(e.g. AppCustomAutheticator)</div>
+        Ensuite , il nous demande de choisir un nom pour authenticator. Choisissez ce que vous voulez, ici on a choisi UserAuthenticator .
+        <div class="container bg-info text-white py-1 px-5 fs-5">Choose a name for the controller class (e.g. SecurityController [SecurityController]: <br>
+          Do youWant to generate a '/logout' URL? (yes/no) [yes]:
+        </div>
+        <br>
+
+         il vous demande de choisir un controller et il vous propose SecurityController. <br>
+        Enfin, il demande si vous voulez générer une déconnexion. Vous devez validez.
+        </p>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+  <script src="https://replit.com/public/js/replit-badge-v2.js" theme="dark" position="bottom-right"></script>
+</body>
+
+</html>

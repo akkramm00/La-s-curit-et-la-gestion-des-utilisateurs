@@ -8,50 +8,81 @@
   <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
-  <header class="container">
+
+<body>
+  <header class="container-fluid bg-dark">
+    <div class="row">
+      <div class="col">
+        <nav class="navbar navbar-dark bg-dark fs-5 d-flex justify-content-around align-items-center py-4">
+          <a href="index.html">La Sécurité</a>
+          <a href="Authentificate.html">L'Authentification</a>
+          <a href="Essentiel.html">L'Essentiel</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main class="container">
     <div class="row">
       <div class="col">
         <h1 class="text-center fw-bold text-info  my-4">Introduction à La sécurité</h1>
-<p>
-  La sécurité est une question importante lorsque l'on détient une application web. Il est probable que nous acceptions et que nous permettions que noytre page d'accueil soit accésssible à tout "surfeur" sans aucune restriction. Cependant, nous ne voulons pas autant que le site soit accessible à des personnes non connéctées, voilà pourquoi il est nécessaine de créer un formulaire d'inscription et d'authentification.
-        <br><br>
-   De plus , même authentifié, il y'a certaines pages que vous voudrez peut-être réserver à des administrateurs , à des menbres de la sociétés ou à d'autres membres. C'est pour cela qu'un système de rôles sera nécessaire.
-  <br><br>
+        <p>
+          La sécurité est une question importante lorsque l'on détient une application web. Il est probable que nous
+          acceptions et que nous permettions que noytre page d'accueil soit accésssible à tout "surfeur" sans aucune
+          restriction. Cependant, nous ne voulons pas autant que le site soit accessible à des personnes non connéctées,
+          voilà pourquoi il est nécessaine de créer un formulaire d'inscription et d'authentification.
+          <br><br>
+          De plus , même authentifié, il y'a certaines pages que vous voudrez peut-être réserver à des administrateurs ,
+          à
+          des menbres de la sociétés ou à d'autres membres. C'est pour cela qu'un système de rôles sera nécessaire.
+          <br><br>
 
-  Alors quels outils pouvons-nous utilider dans une application Symfony 5.4 pour une bonne gestion des utlisateurs et garantir toutes les sécurités nécessaires? C'est ce que nous verrons à traversce cours .
-</p>
+          Alors quels outils pouvons-nous utilider dans une application Symfony 5.4 pour une bonne gestion des
+          utlisateurs
+          et garantir toutes les sécurités nécessaires? C'est ce que nous verrons à traversce cours .
+        </p>
         <h1 class="text-center my-4 text-info fw-bold">La sécurité</h1>
         <h3 class="text-danger fw-bold ">Security-bundle:</h3>
         <p>
-          Afin de pouvoir nous concentrer sur la gestion des utilisateurs et la sécurité, nous allons partir d'un projet qui a déja été créé avec une connexion à la base de données et makerBundle installée.
+          Afin de pouvoir nous concentrer sur la gestion des utilisateurs et la sécurité, nous allons partir d'un projet
+          qui a déja été créé avec une connexion à la base de données et makerBundle installée.
           <br><br>
 
-          Commençons pa rinstaller le pack de sécurité fourni par Symfony ainsi que l'entity "User". Grace à ce pack de sécurité , nous pouvons faire un make:user à la place d'une création habituelle d'entité avec make:entity. De cette façon, User sera créé avec des outils de sécurité.
+          Commençons pa rinstaller le pack de sécurité fourni par Symfony ainsi que l'entity "User". Grace à ce pack de
+          sécurité , nous pouvons faire un make:user à la place d'une création habituelle d'entité avec make:entity. De
+          cette façon, User sera créé avec des outils de sécurité.
           <br><br>
-          <h3 class="mt-4">Méthode</h3>
-          Pour cela, dans le terminal , tapez la ligne de commande suivante: 
-          <br><br>
-
+        <h3 class="mt-4">Méthode</h3>
+        Pour cela, dans le terminal , tapez la ligne de commande suivante:
+        <br><br>
+        <div class="bg-dark fs-5 text-white bg py-3 px-3">
           => $ composer require symfony/security-bundle <br>
-          => $ php bin/console make:user ... (puis suivre les instructions proposées par le términal) 
-          <br><br>
-          * The name of the security user class(e.g. User) [User] => valider. <br>
-          *Do you want to store data in the database(via Doctrine)? (yes/no) [yes]. <br>
-          * Enter a property name that will be the unique "dispaly"name for the user(e.g. email,username,uuid) [email]. <br>
-          * Does this app need to hash/check user passwords? [yes]. <br><br>
+          => $ php bin/console make:user ... (puis suivre les instructions proposées par le términal)
 
-          C'est un succès, vous etes prévenu qu'une entité et un repository User et UserRepository ont été créés et que le fichier security.yaml a été modifié.
-            <h3 class="mt-4">Méthode</h3>
-          Votre entité est assez sommaire, vous pouvez ajouter d'autres propriétés avant de faire une miogration et mettre à jour la base de données. Voici mles commandes qui vous seront nécessaires: <br><br>
+        </div>
+        <br><br>
+        * The name of the security user class(e.g. User) [User] => valider. <br>
+        *Do you want to store data in the database(via Doctrine)? (yes/no) [yes]. <br>
+        * Enter a property name that will be the unique "dispaly"name for the user(e.g. email,username,uuid) [email].
+        <br>
+        * Does this app need to hash/check user passwords? [yes]. <br><br>
 
-          => $ Symfony console make:entity  // choisir User et ajouter vos propriétés. <br>
+        C'est un succès, vous etes prévenu qu'une entité et un repository User et UserRepository ont été créés et que le
+        fichier security.yaml a été modifié.
+        <h3 class="mt-4">Méthode</h3>
+        Votre entité est assez sommaire, vous pouvez ajouter d'autres propriétés avant de faire une miogration et mettre
+        à
+        jour la base de données. Voici mles commandes qui vous seront nécessaires: <br><br>
+        <div class="bg-dark fs-5 text-white bg py-3 px-3">
+          => $ Symfony console make:entity // choisir User et ajouter vos propriétés. <br>
           => $ symfony console make:migration <br>
           => $ symfony console doctrine:migrations:migrate
+        </div>
 
         </p>
         <article class="mt-4">
-        <h3 class="mt-4"> Fichiers créés : </h3>
-          Qu'est ce que security-bundle a apporté? Tout d'abord, dans l'entité User qui vient d'être créée, on constate que les interfaces UserInterface et PasswordAuthentificateUserInterface ont été impémentés. <br>
+          <h3 class="mt-4"> Fichiers créés : </h3>
+          Qu'est ce que security-bundle a apporté? Tout d'abord, dans l'entité User qui vient d'être créée, on constate
+          que les interfaces UserInterface et PasswordAuthentificateUserInterface ont été impémentés. <br>
           L'implémlemtation de ces interfaces ajoute des metodes à notre classe User : <br>
           <ul>
             <li><strong>getUserIdentifier()</strong> permet de retourner identifiant uynique que l'ona choisi,</li>
@@ -61,14 +92,16 @@
             <li><strong>getSalt()</strong> est utile uniquement si nous n'avons pas de méthode dse hashage,</li>
             <li><strong>eraseCredentials()</strong> permet d'effacer les données sensibles et temporaires.</li>
           </ul>
-          
+
         </article>
 
         <h3 class="mt-4">Rôles</h3>
         <p>
-          Le role est une propriété importante pour gérer les utlisateurs . On peut définir les routes qui sont accessibles suivant le role qui est attribué à l'utilisateur dans le ficheir security.yaml. Voici un exemple ci-dessous: <br><br>
+          Le role est une propriété importante pour gérer les utlisateurs . On peut définir les routes qui sont
+          accessibles suivant le role qui est attribué à l'utilisateur dans le ficheir security.yaml. Voici un exemple
+          ci-dessous: <br><br>
 
-          <pre>
+        <pre class="bg-dark fs-5 text-white bg py-5">
             access_control:
                - {path: ^/,roles: ROLE_USER }
                - {path: ^/login, roles: PUBLIC_ACCESS }
@@ -80,54 +113,73 @@
           </pre>
         <br><br>
 
-         L'ensemble du site n'est accessible qu'aux utilisateurs connéctés qui ont le role "ROLE_USER". Les pages commençant par /login qui font pourtant partie du site sontaccessibles à tous, tandis que la pages commançant pa le chemin /user ne sont accessibles qu'aux utilisateurs qui ont le  "ROLE_ADMIN".
+        L'ensemble du site n'est accessible qu'aux utilisateurs connéctés qui ont le role "ROLE_USER". Les pages
+        commençant par /login qui font pourtant partie du site sontaccessibles à tous, tandis que la pages commançant pa
+        le chemin /user ne sont accessibles qu'aux utilisateurs qui ont le "ROLE_ADMIN".
         <br><br>
 
         role_hierarchy ici permet de donner à ROLE_ADMIN toutes les autorisations de ROLE_USER.
         <br><br>
 
-        Il est aussi possible de restreindre une route en mettant une annotation ou un attribut avant la méthode du controller qui gère la route (par exemple : #[IsGranted('ROLE_ADMIN')]) ou d'utiliser les roles comme condition dans un fichier twig.
+        Il est aussi possible de restreindre une route en mettant une annotation ou un attribut avant la méthode du
+        controller qui gère la route (par exemple : #[IsGranted('ROLE_ADMIN')]) ou d'utiliser les roles comme condition
+        dans un fichier twig.
 
         <h3>Exemple </h3>
-        <pre>
-          
+        <pre class="bg-dark fs-5 text-white bg py-5">
+
           {% if is_granted('ROLE_ADMIN') %}
             <a href="{{ path('user_create') }}" class="btn btn-primary">Créer un utilisateur</a>
           {% endif %}
           
         </pre>
-        
+
         </p>
         <h3 class=" mt-4 "> Autres outils e sécurité</h3>
 
-        <p> 
+        <p>
           Il faut savoir que symfony apporte certains outils liés à la sécurité: <br>
-          * HttpFoundation par exemple gère les sesionspour nous. Plus besoin ,comme dans PHP, d'utiliser "session_start()" et d'autres fonctions simiulaires de la superglobales $_SESSION. Pour utliser les sessions à partir d'un controller vous pouvez taper un argument request de cette façon: <br>
+          * HttpFoundation par exemple gère les sesionspour nous. Plus besoin ,comme dans PHP, d'utiliser
+          "session_start()" et d'autres fonctions simiulaires de la superglobales $_SESSION. Pour utliser les sessions à
+          partir d'un controller vous pouvez taper un argument request de cette façon: <br>
 
           $session = $request->getSession(); <br><br>
 
-          * La protection CSRF peut être activée grace à security-csrf CSRF(Cross-Site Requet Forgery) est un type de vulnérabilté des services web Ainsi security-csrf crée un token nommé par défaut _csrf_token qui permet , entre autres et pour faire simple, de vérifier qu'un formulaire vient bien de notre site et de la bonne personne Pensez à vérifier que  csrf_protection est à true dans le fichier "framework.yaml" .      
-        </p>
-        <br><br>
-        
-        <pre>
+          * La protection CSRF peut être activée grace à security-csrf CSRF(Cross-Site Requet Forgery) est un type de
+          vulnérabilté des services web Ainsi security-csrf crée un token nommé par défaut _csrf_token qui permet ,
+          entre
+          autres et pour faire simple, de vérifier qu'un formulaire vient bien de notre site et de la bonne personne
+          Pensez à vérifier que csrf_protection est à true dans le fichier "framework.yaml" .
+          <br><br>
+
+        <pre class="bg-dark fs-5 text-white bg py-5">
           framework:
               secret: '%env(APP_SECRET)%'
               csrf_protection: true
               http_method_override: false
         </pre>
+        <br>
+
+        Pour installer ces packs, voici les commandes nécessaires: <br>
+        <div class="bg-dark fs-5 text-white bg py-3 px-3">
+          => $ composer require symfony/http-foundation <br>
+          => $ composer require symfony/security-csrf <br>
+        </div>
+
+        </p>
+
       </div>
     </div>
-  </header>
-
-<body>
+  </main>
 
 
 
 
 
 
-  
+
+
+
   <script src="script.js"></script>
   <script src="https://replit.com/public/js/replit-badge-v2.js" theme="dark" position="bottom-right"></script>
 </body>
