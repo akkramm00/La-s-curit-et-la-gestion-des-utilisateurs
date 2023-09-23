@@ -54,9 +54,48 @@
          A propos de security.yaml, ont été ajoutés dans le main du firewall le nom ainsi que son chemin d'accès de l'authenticator que nous avons créé, de meme que le nom de la route de déconnexion.
         <br><br>
 
-        Regardons de plus près le fichier SecurityController qui vient d'être créé:
+        Regardons de plus près le fichier SecurityController qui vient d'être créé: <br><br>
+          <h3 class="text-danger fw-bold"> SecurityController</h3>
+        <pre>
+          #[Route(path: '/login' , name: 'app_login')]
+           public function login(AuthenticationUtils $authenticationUtils): Response
+          {
+            //if ($this->getUser()) {
+            //  return $this->redirectToRoute('target_path');
+            //}
+
+            // get the login error if there is one
+            $error = $authenticationUtils-> getLastAuthenticationError();
+
+            return $this-> rebder('security/login.html.twig' , ['last_username' => $lastUsername, 'error' => $error]);
+          }
+
+          #[Route(path: '/logout', name: 'app_logout')]
+          public function logout() : void
+          {
+             throw new \ LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.')
+          }
+        </pre>
+        <br><br>
+
+        Dans la fonction "login()":
+        <ul>
+          <li>Vous pouvez décommenter la première condition. Elle redirige un utilisateur qui n'est pas connécté vers le nom de la route que vous souhaitez (modifier target_path)</li>
+          <li>La variable $error récupère les eventuels messages d'erreur.</li>
+          <li>La variable $lastUsername récupère le dernier utilisateur connecté.</li>
+          <li>Dans le return, on appelle la vue, c'est-à-dire le fichier twig qu'on a choisi pour afficher notre rendu, et on lui passe les deux variables.</li>
+        </ul>
+        Dans la fonction logout() : A l'appel de cette route, symfony déconnecte l'utilisateur et génnère une éventuelle exception.
         
         </p>
+        <h3 class="text-danger fw-bold"> UserAuthenticator</h3>
+        <p>
+          UserAuthenticator sert à faire fonctionner toute l'authentification. Nous n'allons pas tout décrire cette classe, néanmoins vous devez modifier la méthode onAuthenticationSuccess().
+          <br><br>
+
+          Pour cela, commentez la ligne d'excéption qui commence apar throw, décommenter la ligne au-dessus et mettez dans le generate() le nom de la route ou vous souhaitez que l'utilisateur soit redirigé en cas de succès de connexion.
+        </p>
+        
       </div>
     </div>
   </main>
