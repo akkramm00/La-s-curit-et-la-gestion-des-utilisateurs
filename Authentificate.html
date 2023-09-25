@@ -134,6 +134,32 @@
         Nous venons d'installer et de décrire l'authentification amis nous ne pouvo,ns pas nous identifier car nous avons une base de données vide. Il va falloir maintenant pouvoir s'inscrire. <br><br>
 
         Dans votre terminal, tapêz ces lignes de commandes ("validator" est nécessaire pour le formulaire qui sera créé) :
+
+          <pre class="bg-dark text-white py-4 px-4 fs-5">
+            $ composer require validator
+            $ composer require form
+            $ symfony console make:registration-form
+          </pre>
+        <br><br>
+        <p>
+        Do you want to add a @UniqueEntity validation annotation on your User class to make sure dup^licate accounts aren't created(yes/no) [yes]: <br><br>
+        Valider. <br><br>
+
+        Du you want to send an email to verify the user's email address after registration? (yes/no) [yes]: <br>
+        Tapez "no" car pour l'instant nous n'avons pas de système d'email en place. <br><br>
+        Do you want to authentically authenticate the user after registration? (yes/no) [yes]: <br>
+        Validez car on veut qu'après l'enregistrement nous soyons automatiquement connectés.
+        </p>
+        <section>
+          Le terminbal noius explique qu'il a modifié user et qu'il a créé un formulaire dans RegistrationFormTpe, un controller RegistrationController et un template register.html.twig: 
+          <br><br>
+          <ul>
+            <li>RegistrationController : Ce controller avec la route /registrer contient toutes les sécurités nécessaires afin de pouvoir s'enregistrer. . La méthode register()à récupère UserPasswordHasherInterface, UserAuthenticatorInterface ainsi qu'UserAuthenticator pour assurer cette sécurité. Afin de remplir par defaut le role , vous pourriez ajouter avant "entityManager persist()" et flish() . $user->setRoles(['ROLE_USER'])</li>
+            <li></li>
+            <li></li>
+          </ul>
+        </section>
+        
         
       </div>
     </div>
