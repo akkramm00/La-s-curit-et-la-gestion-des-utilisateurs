@@ -154,9 +154,9 @@
           Le terminbal noius explique qu'il a modifié user et qu'il a créé un formulaire dans RegistrationFormTpe, un controller RegistrationController et un template register.html.twig: 
           <br><br>
           <ul>
-            <li>RegistrationController : Ce controller avec la route /registrer contient toutes les sécurités nécessaires afin de pouvoir s'enregistrer. . La méthode register()à récupère UserPasswordHasherInterface, UserAuthenticatorInterface ainsi qu'UserAuthenticator pour assurer cette sécurité. Afin de remplir par defaut le role , vous pourriez ajouter avant "entityManager persist()" et flish() . $user->setRoles(['ROLE_USER'])</li>
-            <li></li>
-            <li></li>
+            <li>RegistrationController : Ce controller avec la route /registrer contient toutes les sécurités nécessaires afin de pouvoir s'enregistrer. . La méthode register()à récupère UserPasswordHasherInterface, UserAuthenticatorInterface ainsi qu'UserAuthenticator pour assurer cette sécurité. Afin de remplir par defaut le role , vous pourriez ajouter avant "entityManager persist()" et flish() . $user->setRoles(['ROLE_USER'])</li> <br>
+            <li>RegistrationFormType : dans ce form, il faudra ajouter avec la méthoide add() toutes les propriétés que vous avaez ajoutées à l'entité User, pour l'instant vous y retrouvez uniquement l'email et le mot de passe. Par defaut il,il a aussi ccréee le formulaire avec un agreeTerms, vous pouvez effacer à moins que vous ayez besoin de le paramétrer.</li> <br>
+            <li>register.html.twig : Les champsdu formulaire de départs sont définis dans chaque form_row. Suprimez le "agreeTerms" et ajoutez les champs nécessaires.</li>
           </ul>
         </section>
         
