@@ -96,6 +96,45 @@
           Pour cela, commentez la ligne d'excéption qui commence apar throw, décommenter la ligne au-dessus et mettez dans le generate() le nom de la route ou vous souhaitez que l'utilisateur soit redirigé en cas de succès de connexion.
         </p>
         
+        <h3 class="text-danger fw-bold"> Login.html.twig</h3>
+        <p>
+          Maintenant,regardons la page "login.html.twig" qui se trouve dans security\ du dossier templates\. <br><br>
+
+          Notez aussi que la page twig généré possède des classes Bootstrap qui est un framework HTML, CSS, vous bénéficierez d'une meilleure présentation si vous l'installez , mais nous ne verrons pas cette démarche ici.
+        </p>
+
+        <pre>
+          {% extends 'base.html.twig' %}
+
+          {% block body %}
+          <form method="post">
+            {% if error %}
+              <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security')}}</div>
+            {% endif %}
+
+            {% if app.user %}
+              <div class="mb-3">
+                Yoiu are in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout')}}">Logout</a>
+              </div>
+            {% endif %}
+
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+               <label for="inputEmail">Email</label>
+               <input type="email" value="{{ last_username}}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+            
+               <label for="inputPassword">Password</label>
+               <input type="password"  name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+            
+          {% endblock %}
+          </form>
+        </pre>
+
+        <h3 class="text-danger fw-bold">make:registration-form</h3>
+        <br><br>
+        Nous venons d'installer et de décrire l'authentification amis nous ne pouvo,ns pas nous identifier car nous avons une base de données vide. Il va falloir maintenant pouvoir s'inscrire. <br><br>
+
+        Dans votre terminal, tapêz ces lignes de commandes ("validator" est nécessaire pour le formulaire qui sera créé) :
+        
       </div>
     </div>
   </main>
